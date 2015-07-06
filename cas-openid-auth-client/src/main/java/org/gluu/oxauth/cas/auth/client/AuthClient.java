@@ -47,6 +47,9 @@ public class AuthClient extends Initializable implements Client<UserProfile> {
 	private static final String STATE_PARAMETER = "#oxauth_state_parameter";
 
 	@NotNull
+	private List<String> openIdScopes;
+
+	@NotNull
 	private String clientId;
 
 	@NotNull
@@ -104,7 +107,7 @@ public class AuthClient extends Initializable implements Client<UserProfile> {
 		final String state = RandomStringUtils.randomAlphanumeric(10);
 
 		final AuthorizationRequest authorizationRequest = new AuthorizationRequest(Arrays.asList(ResponseType.CODE), this.clientId,
-				Arrays.asList("openid", "profile", "email"), this.callbackUrl, null);
+				this.openIdScopes, this.callbackUrl, null);
 
 		authorizationRequest.setNonce("none");
 		authorizationRequest.setState(state);
@@ -226,7 +229,7 @@ public class AuthClient extends Initializable implements Client<UserProfile> {
 		final CommonProfile profile = new CommonProfile();
 
 		profile.setId(getFirstClaim(userInfoResponse, JwtClaimName.SUBJECT_IDENTIFIER));
-		profile.setUserName(getFirstClaim(userInfoResponse, JwtClaimName.SUBJECT_IDENTIFIER));
+		profile.setUserName(getFirstClaim(userInfoResponse, "user_name"));
 
 		profile.setEmail(getFirstClaim(userInfoResponse, JwtClaimName.EMAIL));
 
@@ -279,6 +282,14 @@ public class AuthClient extends Initializable implements Client<UserProfile> {
 
 	public void setCallbackUrl(String callbackUrl) {
 		this.callbackUrl = callbackUrl;
+	}
+
+	public List<String> getOpenIdScopes() {
+		return openIdScopes;
+	}
+
+	public void setOpenIdScopes(List<String> openIdScopes) {
+		this.openIdScopes = openIdScopes;
 	}
 
 	public String toString() {
