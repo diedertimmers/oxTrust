@@ -221,6 +221,7 @@ public class AuthClient extends Initializable implements Client<UserProfile> {
 
 		logger.trace("userInfoResponse.getStatus(): '{}'", userInfoResponse.getStatus());
 		logger.trace("userInfoResponse.getErrorType(): '{}'", userInfoResponse.getErrorType());
+		logger.debug("userInfoResponse.getClaims(): '{}'", userInfoResponse.getClaims());
 
 		return userInfoResponse;
 	}
