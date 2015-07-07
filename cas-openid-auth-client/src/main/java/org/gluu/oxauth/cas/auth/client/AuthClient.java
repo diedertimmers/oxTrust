@@ -66,6 +66,7 @@ public class AuthClient extends Initializable implements Client<UserProfile> {
 	public AuthClient() {}
 
 	public AuthClient(final String clientId, final String clientSecret) {
+		logger.debug("Creating oxAuth client.  openIdScopes: '{}'", openIdScopes);
 		this.clientId = clientId;
 		this.clientSecret = clientSecret;
 	}
