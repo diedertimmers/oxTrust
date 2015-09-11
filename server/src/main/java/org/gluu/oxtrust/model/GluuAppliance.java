@@ -171,21 +171,6 @@ public class GluuAppliance extends InumEntry implements Serializable {
 	@LdapAttribute(name = "gluuScimEnabled")
 	private GluuBoolean scimEnabled;
 
-	@LdapAttribute(name = "gluuCentreonEmail")
-	private String centreonEmail;
-
-	@LdapAttribute(name = "gluuJiraEmail")
-	private String jiraEmail;
-
-	@LdapAttribute(name = "gluuBillingEmail")
-	private String billingEmail;
-
-	@LdapAttribute(name = "gluuPrivacyEmail")
-	private String privacyEmail;
-
-	@LdapAttribute(name = "gluuSvnEmail")
-	private String svnEmail;
-
 	@LdapAttribute(name = "gluuSmtpHost")
 	private String smtpHost;
 
