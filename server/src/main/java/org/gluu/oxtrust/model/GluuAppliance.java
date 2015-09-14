@@ -327,14 +327,6 @@ public class GluuAppliance extends InumEntry implements Serializable {
         this.authenticationMode = authenticationMode;
     }
 
-    public String getBillingEmail() {
-        return billingEmail;
-    }
-
-    public void setBillingEmail(String billingEmail) {
-        this.billingEmail = billingEmail;
-    }
-
     public String getBlowfishPassword() {
         return blowfishPassword;
     }
@@ -349,14 +341,6 @@ public class GluuAppliance extends InumEntry implements Serializable {
 
     public void setCacheRefreshServerIpAddress(String cacheRefreshServerIpAddress) {
         this.cacheRefreshServerIpAddress = cacheRefreshServerIpAddress;
-    }
-
-    public String getCentreonEmail() {
-        return centreonEmail;
-    }
-
-    public void setCentreonEmail(String centreonEmail) {
-        this.centreonEmail = centreonEmail;
     }
 
     public String getClusterType() {
@@ -519,14 +503,6 @@ public class GluuAppliance extends InumEntry implements Serializable {
         this.ipAddress = ipAddress;
     }
 
-    public String getJiraEmail() {
-        return jiraEmail;
-    }
-
-    public void setJiraEmail(String jiraEmail) {
-        this.jiraEmail = jiraEmail;
-    }
-
     public String getLastUpdate() {
         return lastUpdate;
     }
@@ -621,14 +597,6 @@ public class GluuAppliance extends InumEntry implements Serializable {
 
     public void setPollingInterval(String pollingInterval) {
         this.pollingInterval = pollingInterval;
-    }
-
-    public String getPrivacyEmail() {
-        return privacyEmail;
-    }
-
-    public void setPrivacyEmail(String privacyEmail) {
-        this.privacyEmail = privacyEmail;
     }
 
     public GluuBoolean getProfileManagment() {
@@ -757,14 +725,6 @@ public class GluuAppliance extends InumEntry implements Serializable {
 
     public void setStatus(GluuStatus status) {
         this.status = status;
-    }
-
-    public String getSvnEmail() {
-        return svnEmail;
-    }
-
-    public void setSvnEmail(String svnEmail) {
-        this.svnEmail = svnEmail;
     }
 
     public String getSystemUptime() {
