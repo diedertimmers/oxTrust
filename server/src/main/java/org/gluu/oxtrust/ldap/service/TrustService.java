@@ -365,24 +365,6 @@ public class TrustService {
 			releasedAttributes.add(customAttribute.getMetadata().getDn());
 		}
 
-		if (!StringUtils.isEmpty(mailMsg)) {
-			try {
-				String preMsg = "Trust RelationShip name: " + trustRelationship.getDisplayName() + " (inum:" + trustRelationship.getInum()
-						+ ")\n\n";
-				GluuAppliance appliance = ApplianceService.instance().getAppliance();
-				String subj = "Attributes with Privacy level 5 are released in a Trust Relationaship";
-				MailUtils mail = new MailUtils(appliance.getSmtpHost(), appliance.getSmtpPort(), appliance.isRequiresSsl(),
-						appliance.isRequiresAuthentication(), appliance.getSmtpUserName(), appliance.getSmtpPasswordStr());
-				mail.sendMail(appliance.getSmtpFromName() + " <" + appliance.getSmtpFromEmailAddress() + ">", appliance.getPrivacyEmail(),
-						subj, preMsg + mailMsg);
-			} catch (AuthenticationFailedException ex) {
-				log.error("SMTP Authentication Error: ", ex);
-			} catch (MessagingException ex) {
-				log.error("SMTP Host Connection Error", ex);
-			} catch (Exception ex) {
-				log.error("Failed to send the notification email: ", ex);
-			}
-		}
 		if (!releasedAttributes.isEmpty()) {
 			trustRelationship.setReleasedAttributes(releasedAttributes);
 		} else {
